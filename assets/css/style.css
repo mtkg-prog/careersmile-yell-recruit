@@ -290,11 +290,11 @@ ul {
   object-position: center center;
 }
 
-/* Per-image object-position for SP — focus on people, skip ceiling/sky */
-.hero-visual-img--01 { object-position: center 35%; }
-.hero-visual-img--02 { object-position: center 40%; }
-.hero-visual-img--03 { object-position: center 38%; }
-.hero-visual-img--04 { object-position: center 30%; }
+/* Per-image object-position for SP — crop ceiling/sky, show people */
+.hero-visual-img--01 { object-position: center 60%; }
+.hero-visual-img--02 { object-position: center 65%; }
+.hero-visual-img--03 { object-position: center 60%; }
+.hero-visual-img--04 { object-position: center 45%; }
 
 /* Subtle top gradient on SP image */
 .hero-visual::after {
