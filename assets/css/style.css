@@ -187,23 +187,14 @@ ul {
 }
 
 /* ============================================
-   Hero
+   Hero — Mobile first (text + image separated)
    ============================================ */
 .hero {
   position: relative;
   width: 100%;
-  height: 100svh;
-  min-height: 600px;
-  overflow: hidden;
 }
 
-/* --- Slider --- */
-.hero-slider {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-}
-
+/* --- Shared slide behavior --- */
 .hero-slide {
   position: absolute;
   inset: 0;
@@ -216,69 +207,42 @@ ul {
   opacity: 1;
 }
 
-.hero-slide picture,
-.hero-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+/* --- PC slider (hidden on SP) --- */
+.hero-slider--pc {
+  display: none;
 }
 
-/* --- Overlay --- */
+/* --- Overlay (hidden on SP) --- */
 .hero-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  /* SP: gentle top gradient — keep subjects clearly visible */
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.82) 0%,
-    rgba(255, 255, 255, 0.55) 20%,
-    rgba(255, 255, 255, 0.1) 45%,
-    rgba(255, 255, 255, 0) 60%
-  );
+  display: none;
 }
 
-@media (min-width: 768px) {
-  .hero-overlay {
-    /* PC: left gradient — wider for lead text readability, right stays clear */
-    background: linear-gradient(
-      to right,
-      rgba(255, 255, 255, 0.92) 0%,
-      rgba(255, 255, 255, 0.78) 25%,
-      rgba(255, 255, 255, 0.35) 48%,
-      rgba(255, 255, 255, 0) 65%
-    );
-  }
-}
-
-/* --- Content --- */
+/* --- Content (SP: static block, white bg) --- */
 .hero-content {
   position: relative;
   z-index: 3;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding: 110px 24px 40px;
-  height: 100%;
-  max-width: 600px;
+  background-color: var(--color-white);
+  padding: 88px 24px 0;
 }
 
 .hero-copy-en {
   font-family: var(--font-en);
-  font-size: clamp(2.2rem, 9vw, 3.2rem);
+  font-size: clamp(40px, 11vw, 56px);
   font-weight: 800;
-  line-height: 1.2;
+  line-height: 0.97;
   color: var(--color-navy);
-  letter-spacing: 0.04em;
-  margin-bottom: 16px;
-}
-
-.hero-copy-en span:first-child {
-  color: var(--color-accent);
+  letter-spacing: 0.01em;
+  margin-bottom: 24px;
 }
 
 .hero-copy-en span {
   display: block;
+}
+
+.hero-copy-en span:first-child {
+  color: var(--color-accent);
 }
 
 .hero-copy-ja {
@@ -286,7 +250,7 @@ ul {
   font-weight: 500;
   color: var(--color-charcoal);
   line-height: 1.9;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   letter-spacing: 0.06em;
 }
 
@@ -299,32 +263,119 @@ ul {
 }
 
 .hero-lead:last-of-type {
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .hero-cta {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-top: auto;
-  padding-bottom: 32px;
+  gap: 14px;
+  padding-bottom: 24px;
 }
 
+/* --- SP visual area (independent image block) --- */
+.hero-visual {
+  position: relative;
+  width: 100%;
+  height: 42vh;
+  min-height: 280px;
+  max-height: 420px;
+  overflow: hidden;
+}
+
+.hero-visual .hero-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* Per-image object-position for SP */
+.hero-visual-img--01 { object-position: center bottom; }
+.hero-visual-img--02 { object-position: center bottom; }
+.hero-visual-img--03 { object-position: center bottom; }
+.hero-visual-img--04 { object-position: center center; }
+
+/* Subtle top gradient on SP image */
+.hero-visual::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ===========================================
+   Hero — PC (768px+): background image mode
+   =========================================== */
 @media (min-width: 768px) {
   .hero {
+    position: relative;
+    height: 100svh;
     min-height: 700px;
+    overflow: hidden;
   }
 
+  /* Show PC slider as full background */
+  .hero-slider--pc {
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  .hero-slider--pc .hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Show overlay on PC */
+  .hero-overlay {
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.92) 0%,
+      rgba(255, 255, 255, 0.78) 25%,
+      rgba(255, 255, 255, 0.35) 48%,
+      rgba(255, 255, 255, 0) 65%
+    );
+  }
+
+  /* Hide SP visual area on PC */
+  .hero-visual {
+    display: none;
+  }
+
+  /* PC content: overlay on image */
   .hero-content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
+    background-color: transparent;
     padding: 80px 0 40px clamp(60px, 8vw, 140px);
+    height: 100%;
     max-width: 680px;
   }
 
   .hero-copy-en {
     font-size: clamp(3rem, 4.8vw, 4.5rem);
-    margin-bottom: 16px;
+    line-height: 1.15;
     letter-spacing: 0.05em;
+    margin-bottom: 16px;
   }
 
   .hero-copy-ja {
@@ -358,17 +409,18 @@ ul {
   font-size: 0.9rem;
   font-weight: 500;
   letter-spacing: 0.06em;
-  padding: 16px 32px;
-  border-radius: 4px;
+  height: 56px;
+  padding: 0 32px;
+  border-radius: 999px;
   transition: all 0.3s ease;
   white-space: nowrap;
+  width: 100%;
 }
 
 .btn-primary {
   background-color: var(--color-accent);
   color: var(--color-white);
   border: 1.5px solid var(--color-accent);
-  border-radius: 100px;
 }
 
 .btn-primary:hover {
@@ -380,7 +432,6 @@ ul {
   background-color: var(--color-white);
   color: var(--color-navy);
   border: 1.5px solid var(--color-border);
-  border-radius: 100px;
 }
 
 .btn-secondary:hover {
@@ -392,7 +443,9 @@ ul {
 @media (min-width: 768px) {
   .btn {
     font-size: 0.95rem;
+    height: auto;
     padding: 18px 40px;
+    width: auto;
   }
 }
 

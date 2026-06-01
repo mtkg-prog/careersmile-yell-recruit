@@ -30,30 +30,19 @@
   <main>
     <!-- ===== Hero ===== -->
     <section class="hero" aria-label="メインビジュアル">
-      <div class="hero-slider" aria-hidden="true">
+      <!-- PC用：背景全面スライダー -->
+      <div class="hero-slider hero-slider--pc" aria-hidden="true">
         <div class="hero-slide is-active">
-          <picture>
-            <source srcset="assets/images/hero/hero-01-pc.png" media="(min-width: 768px)">
-            <img src="assets/images/hero/hero-01-sp.png" alt="" width="941" height="1672" loading="eager">
-          </picture>
+          <img src="assets/images/hero/hero-01-pc.png" alt="" width="1672" height="941" loading="eager">
         </div>
         <div class="hero-slide">
-          <picture>
-            <source srcset="assets/images/hero/hero-02-pc.png" media="(min-width: 768px)">
-            <img src="assets/images/hero/hero-02-sp.png" alt="" width="941" height="1672" loading="lazy">
-          </picture>
+          <img src="assets/images/hero/hero-02-pc.png" alt="" width="1672" height="941" loading="lazy">
         </div>
         <div class="hero-slide">
-          <picture>
-            <source srcset="assets/images/hero/hero-03-pc.png" media="(min-width: 768px)">
-            <img src="assets/images/hero/hero-03-sp.png" alt="" width="941" height="1672" loading="lazy">
-          </picture>
+          <img src="assets/images/hero/hero-03-pc.png" alt="" width="1672" height="941" loading="lazy">
         </div>
         <div class="hero-slide">
-          <picture>
-            <source srcset="assets/images/hero/hero-04-pc.png" media="(min-width: 768px)">
-            <img src="assets/images/hero/hero-04-sp.png" alt="" width="941" height="1672" loading="lazy">
-          </picture>
+          <img src="assets/images/hero/hero-04-pc.png" alt="" width="1672" height="941" loading="lazy">
         </div>
       </div>
 
@@ -92,6 +81,22 @@
         <div class="hero-cta">
           <a href="#" class="btn btn-primary">エール職に応募する</a>
           <a href="#" class="btn btn-secondary">働き方を詳しく見る</a>
+        </div>
+      </div>
+
+      <!-- SP用：独立画像エリア -->
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-slide is-active">
+          <img src="assets/images/hero/hero-01-sp.png" alt="" width="941" height="1672" loading="eager" class="hero-visual-img hero-visual-img--01">
+        </div>
+        <div class="hero-slide">
+          <img src="assets/images/hero/hero-02-sp.png" alt="" width="941" height="1672" loading="lazy" class="hero-visual-img hero-visual-img--02">
+        </div>
+        <div class="hero-slide">
+          <img src="assets/images/hero/hero-03-sp.png" alt="" width="941" height="1672" loading="lazy" class="hero-visual-img hero-visual-img--03">
+        </div>
+        <div class="hero-slide">
+          <img src="assets/images/hero/hero-04-sp.png" alt="" width="941" height="1672" loading="lazy" class="hero-visual-img hero-visual-img--04">
         </div>
       </div>
 
