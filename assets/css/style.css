@@ -291,10 +291,10 @@ ul {
 }
 
 /* Per-image object-position for SP — crop ceiling/sky, show people */
-.hero-visual-img--01 { object-position: center 60%; }
-.hero-visual-img--02 { object-position: center 65%; }
-.hero-visual-img--03 { object-position: center 60%; }
-.hero-visual-img--04 { object-position: center 45%; }
+.hero-visual .hero-slide img.hero-visual-img--01 { object-position: center 82%; }
+.hero-visual .hero-slide img.hero-visual-img--02 { object-position: center 100%; }
+.hero-visual .hero-slide img.hero-visual-img--03 { object-position: center 96%; }
+.hero-visual .hero-slide img.hero-visual-img--04 { object-position: center 78%; }
 
 /* Subtle top gradient on SP image */
 .hero-visual::after {
