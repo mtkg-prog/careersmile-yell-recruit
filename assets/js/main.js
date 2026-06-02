@@ -71,7 +71,7 @@
      Scroll Fade-in (IntersectionObserver)
      =================================== */
   function initScrollFadeIn() {
-    var targets = document.querySelectorAll('.intro-inner');
+    var targets = document.querySelectorAll('.section-inner');
     if (!('IntersectionObserver' in window) || targets.length === 0) {
       targets.forEach(function (el) {
         el.classList.add('is-visible');
@@ -97,10 +97,39 @@
   }
 
   /* ===================================
+     FAQ Accordion
+     =================================== */
+  function initFaqAccordion() {
+    var items = document.querySelectorAll('.faq-item');
+    items.forEach(function (item) {
+      var btn = item.querySelector('.faq-item__question');
+      if (!btn) return;
+
+      btn.addEventListener('click', function () {
+        var isOpen = item.classList.contains('is-open');
+
+        // Close all
+        items.forEach(function (other) {
+          other.classList.remove('is-open');
+          var otherBtn = other.querySelector('.faq-item__question');
+          if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+        });
+
+        // Toggle current
+        if (!isOpen) {
+          item.classList.add('is-open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  }
+
+  /* ===================================
      Init
      =================================== */
   document.addEventListener('DOMContentLoaded', function () {
     initHeroSlider();
     initScrollFadeIn();
+    initFaqAccordion();
   });
 })();

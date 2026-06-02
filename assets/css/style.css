@@ -511,81 +511,608 @@ ul {
 }
 
 /* ============================================
-   Intro
+   Sections — Shared
    ============================================ */
-.intro {
+.section {
   padding: var(--section-padding-sp);
-  background-color: var(--color-bg);
 }
 
-.intro-inner {
-  max-width: 720px;
+.section-inner {
+  max-width: 900px;
   margin: 0 auto;
-}
-
-.intro-heading {
-  font-size: 1.3rem;
-  font-weight: 700;
-  line-height: 1.8;
-  color: var(--color-navy);
-  margin-bottom: 40px;
-  letter-spacing: 0.04em;
-}
-
-.intro-heading-en {
-  display: block;
-  font-family: var(--font-en);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  color: var(--color-accent);
-  margin-bottom: 16px;
-  text-transform: uppercase;
-}
-
-.intro-body p {
-  font-size: 0.92rem;
-  line-height: 2.1;
-  color: var(--color-text);
-  margin-bottom: 24px;
-  letter-spacing: 0.02em;
-}
-
-.intro-body p:last-child {
-  margin-bottom: 0;
-}
-
-/* Scroll fade-in animation */
-.intro-inner {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.intro-inner.is-visible {
+.section-inner.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
+.section-label {
+  display: block;
+  font-family: var(--font-en);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.section-heading {
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.8;
+  color: var(--color-navy);
+  margin-bottom: 32px;
+  letter-spacing: 0.04em;
+}
+
+.section-body p {
+  font-size: 0.92rem;
+  line-height: 2.1;
+  color: var(--color-text);
+  margin-bottom: 20px;
+  letter-spacing: 0.02em;
+}
+
+.section-body p:last-child {
+  margin-bottom: 0;
+}
+
+.section-body-accent {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-top: 8px;
+}
+
+/* --- Image placeholder --- */
+.section-media {
+  aspect-ratio: 4 / 3;
+  border-radius: 20px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f4f7f6, #eef4f2);
+  margin-top: 24px;
+}
+
+.section-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 @media (min-width: 768px) {
-  .intro {
+  .section {
     padding: var(--section-padding-pc);
   }
 
-  .intro-heading {
-    font-size: 1.75rem;
-    line-height: 1.9;
-    margin-bottom: 56px;
-    text-align: center;
-  }
-
-  .intro-heading-en {
+  .section-label {
     font-size: 0.85rem;
     margin-bottom: 20px;
   }
 
-  .intro-body p {
+  .section-heading {
+    font-size: 1.75rem;
+    line-height: 1.9;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .section-label {
+    text-align: center;
+  }
+
+  .section-body p {
     font-size: 1rem;
     text-align: center;
   }
+
+  .section-body-accent {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+
+  .section-media {
+    border-radius: 24px;
+    margin-top: 48px;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* --- Section backgrounds (alternating) --- */
+.section--message { background-color: var(--color-bg); }
+.section--questions { background-color: var(--color-white); }
+.section--about { background-color: var(--color-mint); }
+.section--reasons { background-color: var(--color-white); }
+.section--support { background-color: var(--color-bg); }
+.section--career { background-color: var(--color-white); }
+.section--recruitment { background-color: var(--color-bg); }
+.section--faq { background-color: var(--color-white); }
+.section--final-cta { background-color: var(--color-navy); }
+
+/* ============================================
+   3. YOUR QUESTIONS — Card Grid
+   ============================================ */
+.questions-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.question-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 18px 20px;
+}
+
+.question-card__icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--color-pink-light);
+  color: var(--color-accent);
+  font-family: var(--font-en);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.question-card__text {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+@media (min-width: 768px) {
+  .questions-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+/* ============================================
+   4. ABOUT YELL — 3 Cards
+   ============================================ */
+.about-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.about-card {
+  background: var(--color-white);
+  border-radius: 16px;
+  padding: 28px 24px;
+  border: 1px solid var(--color-border);
+}
+
+.about-card__number {
+  display: block;
+  font-family: var(--font-en);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.about-card__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-bottom: 8px;
+}
+
+.about-card__text {
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: var(--color-text);
+}
+
+@media (min-width: 768px) {
+  .about-cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .about-card {
+    text-align: center;
+    padding: 36px 28px;
+  }
+}
+
+/* ============================================
+   5. WHY YELL — Reason Cards
+   ============================================ */
+.reason-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.reason-card {
+  background: var(--color-bg);
+  border-radius: 16px;
+  padding: 28px 24px;
+  border: 1px solid var(--color-border);
+}
+
+.reason-card__media {
+  display: none;
+}
+
+.reason-card__number {
+  display: block;
+  font-family: var(--font-en);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.reason-card__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-bottom: 8px;
+}
+
+.reason-card__text {
+  font-size: 0.88rem;
+  line-height: 1.9;
+  color: var(--color-text);
+}
+
+@media (min-width: 768px) {
+  .reason-cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .reason-card:nth-child(4),
+  .reason-card:nth-child(5) {
+    grid-column: span 1;
+  }
+}
+
+/* ============================================
+   6. NOT ALONE — Support Cards
+   ============================================ */
+.support-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.support-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+  padding: 12px 22px;
+}
+
+.support-card__title {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--color-navy);
+}
+
+@media (min-width: 768px) {
+  .support-cards {
+    justify-content: center;
+    gap: 12px;
+    margin-top: 32px;
+  }
+}
+
+/* ============================================
+   7. WORK & CAREER — Career Models
+   ============================================ */
+.career-models {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.career-model {
+  background: var(--color-bg);
+  border-radius: 16px;
+  padding: 28px 24px;
+  border: 1px solid var(--color-border);
+}
+
+.career-model__label {
+  display: block;
+  font-family: var(--font-en);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.career-model__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-bottom: 8px;
+}
+
+.career-model__text {
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: var(--color-text);
+}
+
+@media (min-width: 768px) {
+  .career-models {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
+
+/* ============================================
+   8. RECRUITMENT — Definition List
+   ============================================ */
+.recruitment-content {
+  display: block;
+}
+
+.recruitment-dl {
+  width: 100%;
+}
+
+.recruitment-dl__item {
+  display: flex;
+  flex-direction: column;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.recruitment-dl__item:first-child {
+  border-top: 1px solid var(--color-border);
+}
+
+.recruitment-dl dt {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-bottom: 4px;
+  letter-spacing: 0.04em;
+}
+
+.recruitment-dl dd {
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--color-text);
+}
+
+@media (min-width: 768px) {
+  .recruitment-content {
+    display: flex;
+    gap: 48px;
+    align-items: flex-start;
+  }
+
+  .recruitment-dl {
+    flex: 1;
+  }
+
+  .recruitment-content > .section-media {
+    flex: 0 0 320px;
+    margin-top: 0;
+  }
+
+  .recruitment-dl__item {
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  .recruitment-dl dt {
+    flex: 0 0 120px;
+    margin-bottom: 0;
+  }
+}
+
+/* ============================================
+   9. FAQ — Accordion
+   ============================================ */
+.faq-list {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.faq-item:first-child {
+  border-top: 1px solid var(--color-border);
+}
+
+.faq-item__question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-ja);
+  font-size: 0.92rem;
+  font-weight: 500;
+  line-height: 1.7;
+  color: var(--color-navy);
+  text-align: left;
+  gap: 16px;
+}
+
+.faq-item__icon {
+  flex-shrink: 0;
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.faq-item__icon::before,
+.faq-item__icon::after {
+  content: '';
+  position: absolute;
+  background-color: var(--color-navy);
+  border-radius: 1px;
+  transition: transform 0.3s ease;
+}
+
+.faq-item__icon::before {
+  width: 14px;
+  height: 2px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.faq-item__icon::after {
+  width: 2px;
+  height: 14px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.faq-item.is-open .faq-item__icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.faq-item__answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+}
+
+.faq-item.is-open .faq-item__answer {
+  max-height: 300px;
+}
+
+.faq-item__answer p {
+  font-size: 0.88rem;
+  line-height: 1.9;
+  color: var(--color-text);
+  padding-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .faq-item__question {
+    font-size: 1rem;
+    padding: 24px 0;
+  }
+}
+
+/* ============================================
+   10. FINAL CTA
+   ============================================ */
+.section--final-cta {
+  text-align: center;
+}
+
+.section--final-cta .section-label {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.section--final-cta .section-heading {
+  color: var(--color-white);
+}
+
+.section--final-cta .section-body p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.final-cta__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.section--final-cta .btn-primary {
+  background-color: var(--color-white);
+  color: var(--color-navy);
+  border-color: var(--color-white);
+}
+
+.section--final-cta .btn-primary:hover {
+  background-color: var(--color-pink-light);
+  border-color: var(--color-pink-light);
+  color: var(--color-accent);
+}
+
+.section--final-cta .btn-secondary {
+  background-color: transparent;
+  color: var(--color-white);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.section--final-cta .btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.section--final-cta .section-media {
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  margin-top: 40px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+}
+
+@media (min-width: 768px) {
+  .final-cta__buttons {
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .section--final-cta .section-media {
+    margin-top: 56px;
+    border-radius: 24px;
+  }
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+.footer {
+  background-color: var(--color-navy);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 24px 20px;
+  text-align: center;
+}
+
+.footer-copy {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.04em;
 }
