@@ -1360,6 +1360,106 @@ ul {
   }
 }
 
+/* Recruitment: dd内の箇条書き */
+.recruitment-dl dd ul {
+  list-style: disc;
+  padding-left: 1.2em;
+  margin-top: 4px;
+}
+
+.recruitment-dl dd ul li {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: var(--color-text);
+  margin-bottom: 2px;
+}
+
+/* Recruitment: 週休比較カード */
+.recruitment-compare {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 24px 0;
+  padding: 24px 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.recruitment-compare__card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.recruitment-compare__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--color-accent);
+  text-align: center;
+}
+
+.recruitment-compare__dl {
+  width: 100%;
+}
+
+.recruitment-compare__dl-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--color-border);
+}
+
+.recruitment-compare__dl-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.recruitment-compare__dl-item dt {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--color-text-light);
+  flex-shrink: 0;
+}
+
+.recruitment-compare__dl-item dd {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-navy);
+  text-align: right;
+  line-height: 1.7;
+}
+
+.recruitment-compare__dl-item dd strong {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.recruitment-compare__note {
+  font-size: 0.78rem;
+  color: var(--color-text-light);
+  margin-top: 8px;
+  text-align: right;
+}
+
+@media (min-width: 768px) {
+  .recruitment-compare {
+    flex-direction: row;
+    gap: 16px;
+    margin: 32px 0;
+    padding: 32px 0;
+  }
+
+  .recruitment-compare__card {
+    flex: 1;
+    padding: 24px;
+  }
+}
+
 /* ============================================
    9. FAQ — Accordion
    ============================================ */
@@ -1455,7 +1555,7 @@ ul {
 }
 
 .faq-item.is-open .faq-item__answer {
-  max-height: 300px;
+  max-height: 500px;
 }
 
 .faq-item__answer p {
@@ -1528,6 +1628,61 @@ ul {
     justify-content: center;
     gap: 16px;
     margin-top: 44px;
+  }
+}
+
+/* Final CTA: Contact Info */
+.final-cta__contact {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border);
+}
+
+.final-cta__contact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.final-cta__contact-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-light);
+  letter-spacing: 0.06em;
+}
+
+.final-cta__contact-tel {
+  font-family: var(--font-en);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+}
+
+.final-cta__contact-email {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--color-navy);
+  text-decoration: none;
+}
+
+.final-cta__contact-tel:hover,
+.final-cta__contact-email:hover {
+  color: var(--color-accent);
+}
+
+@media (min-width: 768px) {
+  .final-cta__contact {
+    flex-direction: row;
+    justify-content: center;
+    gap: 48px;
+    margin-top: 32px;
+    padding-top: 28px;
   }
 }
 
@@ -1624,6 +1779,49 @@ ul {
 .footer-company span {
   font-size: 0.72rem;
   color: rgba(255, 255, 255, 0.6);
+}
+
+/* Footer Contact */
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-contact__heading {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+.footer-contact__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-contact__label {
+  font-family: var(--font-en);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.1em;
+  min-width: 36px;
+}
+
+.footer-contact__item a {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-contact__item a:hover {
+  color: var(--color-coral-light);
 }
 
 /* Copyright */
