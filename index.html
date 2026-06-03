@@ -3,12 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>キャリスマエール｜株式会社キャリアのエール職 採用サイト</title>
-  <meta name="description" content="キャリスマエールは、株式会社キャリアの正社員として働きながら、さまざまな介護の現場で経験を積み、自分らしいキャリアを育てていける働き方です。">
+  <title>キャリスマエール｜株式会社キャリアのエール職採用サイト</title>
+  <meta name="description" content="キャリスマエールは、株式会社キャリアの正社員として働きながら、介護施設などで経験を積めるエール職の採用サイトです。未経験歓迎、無料資格サポート、昇給制度、週休3日制度など、安心して一歩を踏み出せる働き方を紹介します。">
+  <meta property="og:title" content="キャリスマエール｜株式会社キャリアのエール職採用サイト">
+  <meta property="og:description" content="キャリスマエールは、株式会社キャリアの正社員として働きながら、介護施設などで経験を積めるエール職の採用サイトです。未経験歓迎、無料資格サポート、昇給制度、週休3日制度など、安心して一歩を踏み出せる働き方を紹介します。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/hero/hero-01-pc.png">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <noscript>
+    <style>
+      .section-inner { opacity: 1; transform: none; }
+      .faq-item__answer { max-height: none; }
+      .header-menu-btn { display: none; }
+      .header-nav { display: flex; }
+    </style>
+  </noscript>
 </head>
 <body>
 
@@ -19,11 +32,19 @@
         <span class="header-logo-main">キャリスマエール</span>
         <span class="header-logo-sub">by 株式会社キャリア</span>
       </a>
-      <button class="header-menu-btn" type="button" aria-label="メニューを開く" aria-expanded="false">
+      <button class="header-menu-btn" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="header-nav">
         <span class="header-menu-btn-line"></span>
         <span class="header-menu-btn-line"></span>
         <span class="header-menu-btn-line"></span>
       </button>
+      <nav class="header-nav" id="header-nav" aria-label="メインナビゲーション">
+        <a href="#about">ABOUT</a>
+        <a href="#reasons">WHY</a>
+        <a href="#support">SUPPORT</a>
+        <a href="#career">CAREER</a>
+        <a href="#recruitment">RECRUITMENT</a>
+        <a href="#faq">FAQ</a>
+      </nav>
     </div>
   </header>
 
@@ -33,16 +54,28 @@
       <!-- PC用：背景全面スライダー -->
       <div class="hero-slider hero-slider--pc" aria-hidden="true">
         <div class="hero-slide is-active">
-          <img src="assets/images/hero/hero-01-pc.png" alt="" width="1672" height="941" loading="eager">
+          <picture>
+            <source srcset="assets/images/hero/hero-01-pc.webp" type="image/webp">
+            <img src="assets/images/hero/hero-01-pc.png" alt="" width="1672" height="941" loading="eager" fetchpriority="high">
+          </picture>
         </div>
         <div class="hero-slide">
-          <img src="assets/images/hero/hero-02-pc.png" alt="" width="1672" height="941" loading="lazy">
+          <picture>
+            <source srcset="assets/images/hero/hero-02-pc.webp" type="image/webp">
+            <img src="assets/images/hero/hero-02-pc.png" alt="" width="1672" height="941" loading="lazy" decoding="async">
+          </picture>
         </div>
         <div class="hero-slide">
-          <img src="assets/images/hero/hero-03-pc.png" alt="" width="1672" height="941" loading="lazy">
+          <picture>
+            <source srcset="assets/images/hero/hero-03-pc.webp" type="image/webp">
+            <img src="assets/images/hero/hero-03-pc.png" alt="" width="1672" height="941" loading="lazy" decoding="async">
+          </picture>
         </div>
         <div class="hero-slide">
-          <img src="assets/images/hero/hero-04-pc.png" alt="" width="1672" height="941" loading="lazy">
+          <picture>
+            <source srcset="assets/images/hero/hero-04-pc.webp" type="image/webp">
+            <img src="assets/images/hero/hero-04-pc.png" alt="" width="1672" height="941" loading="lazy" decoding="async">
+          </picture>
         </div>
       </div>
 
@@ -76,24 +109,36 @@
           介護のキャリアに、もっと自由な選択肢を。
         </p>
         <div class="hero-cta">
-          <a href="#" class="btn btn-primary">エール職に応募する</a>
-          <a href="#" class="btn btn-secondary">働き方を詳しく見る</a>
+          <a href="#recruitment" class="btn btn-primary">エール職に応募する</a>
+          <a href="#about" class="btn btn-secondary">働き方を詳しく見る</a>
         </div>
       </div>
 
       <!-- SP用：独立画像エリア -->
       <div class="hero-visual" aria-hidden="true">
         <div class="hero-slide is-active">
-          <img src="assets/images/hero/hero-01-sp.png" alt="" width="941" height="1672" loading="eager" class="hero-visual-img hero-visual-img--01">
+          <picture>
+            <source srcset="assets/images/hero/hero-01-sp.webp" type="image/webp">
+            <img src="assets/images/hero/hero-01-sp.png" alt="" width="941" height="1672" loading="eager" fetchpriority="high" class="hero-visual-img hero-visual-img--01">
+          </picture>
         </div>
         <div class="hero-slide">
-          <img src="assets/images/hero/hero-02-sp.png" alt="" width="941" height="1672" loading="lazy" class="hero-visual-img hero-visual-img--02">
+          <picture>
+            <source srcset="assets/images/hero/hero-02-sp.webp" type="image/webp">
+            <img src="assets/images/hero/hero-02-sp.png" alt="" width="941" height="1672" loading="lazy" decoding="async" class="hero-visual-img hero-visual-img--02">
+          </picture>
         </div>
         <div class="hero-slide">
-          <img src="assets/images/hero/hero-03-sp.png" alt="" width="941" height="1672" loading="lazy" class="hero-visual-img hero-visual-img--03">
+          <picture>
+            <source srcset="assets/images/hero/hero-03-sp.webp" type="image/webp">
+            <img src="assets/images/hero/hero-03-sp.png" alt="" width="941" height="1672" loading="lazy" decoding="async" class="hero-visual-img hero-visual-img--03">
+          </picture>
         </div>
         <div class="hero-slide">
-          <img src="assets/images/hero/hero-04-sp.png" alt="" width="941" height="1672" loading="lazy" class="hero-visual-img hero-visual-img--04">
+          <picture>
+            <source srcset="assets/images/hero/hero-04-sp.webp" type="image/webp">
+            <img src="assets/images/hero/hero-04-sp.png" alt="" width="941" height="1672" loading="lazy" decoding="async" class="hero-visual-img hero-visual-img--04">
+          </picture>
         </div>
       </div>
 
@@ -124,8 +169,10 @@
       <div class="section-inner message-layout">
         <div class="section-media message-media">
           <picture>
+            <source media="(min-width: 768px)" srcset="assets/images/sections/message-main-pc.webp" type="image/webp">
             <source media="(min-width: 768px)" srcset="assets/images/sections/message-main-pc.png">
-            <img src="assets/images/sections/message-main-sp.png" alt="明るい施設へ向かって一歩踏み出す若い女性" loading="lazy">
+            <source srcset="assets/images/sections/message-main-sp.webp" type="image/webp">
+            <img src="assets/images/sections/message-main-sp.png" alt="明るい施設へ向かって一歩踏み出す若い女性" width="941" height="1672" loading="lazy" decoding="async">
           </picture>
         </div>
         <div class="section-content message-content">
@@ -288,8 +335,10 @@
         </div>
         <div class="support-media">
           <picture>
+            <source media="(min-width: 768px)" srcset="assets/images/sections/support-main-pc.webp" type="image/webp">
             <source media="(min-width: 768px)" srcset="assets/images/sections/support-main-pc.png">
-            <img src="assets/images/sections/support-main-sp.png" alt="明るい相談スペースでフォロー担当・施設側と穏やかに話し合う若手スタッフ" loading="lazy" onerror="this.style.display='none'">
+            <source srcset="assets/images/sections/support-main-sp.webp" type="image/webp">
+            <img src="assets/images/sections/support-main-sp.png" alt="明るい相談スペースでフォロー担当・施設側と穏やかに話し合う若手スタッフ" width="1122" height="1402" loading="lazy" decoding="async" onerror="this.style.display='none'">
           </picture>
         </div>
       </div>
@@ -313,9 +362,12 @@
         </p>
         <div class="career-models">
           <!-- MODEL 01 -->
-          <a href="#" class="career-model">
+          <article class="career-model">
             <div class="career-model__image-wrap">
-              <img src="assets/images/sections/model-01.png" alt="未経験から介護職へ挑戦する若い女性" loading="lazy" onerror="this.style.display='none'">
+              <picture>
+                <source srcset="assets/images/sections/model-01.webp" type="image/webp">
+                <img src="assets/images/sections/model-01.png" alt="未経験から介護職へ挑戦する若い女性" width="1122" height="1402" loading="lazy" decoding="async" onerror="this.style.display='none'">
+              </picture>
             </div>
             <span class="career-model__label">MODEL 01</span>
             <h3 class="career-model__type">未経験から介護職へ</h3>
@@ -326,12 +378,15 @@
               <span class="career-model__tag">無料資格サポート</span>
               <span class="career-model__tag">育成制度</span>
             </div>
-            <span class="career-model__link">この働き方を見る →</span>
-          </a>
+            <span class="career-model__link">この働き方の特徴</span>
+          </article>
           <!-- MODEL 02 -->
-          <a href="#" class="career-model">
+          <article class="career-model">
             <div class="career-model__image-wrap">
-              <img src="assets/images/sections/model-02.png" alt="仕事と自分の時間を大切にしながら働く女性" loading="lazy" onerror="this.style.display='none'">
+              <picture>
+                <source srcset="assets/images/sections/model-02.webp" type="image/webp">
+                <img src="assets/images/sections/model-02.png" alt="仕事と自分の時間を大切にしながら働く女性" width="1122" height="1402" loading="lazy" decoding="async" onerror="this.style.display='none'">
+              </picture>
             </div>
             <span class="career-model__label">MODEL 02</span>
             <h3 class="career-model__type">週休3日で無理なくスタート</h3>
@@ -342,12 +397,15 @@
               <span class="career-model__tag">ワークライフバランス</span>
               <span class="career-model__tag">無理なく続ける</span>
             </div>
-            <span class="career-model__link">この働き方を見る →</span>
-          </a>
+            <span class="career-model__link">この働き方の特徴</span>
+          </article>
           <!-- MODEL 03 -->
-          <a href="#" class="career-model">
+          <article class="career-model">
             <div class="career-model__image-wrap">
-              <img src="assets/images/sections/model-03.png" alt="経験を活かしてキャリアを広げる介護職の女性" loading="lazy" onerror="this.style.display='none'">
+              <picture>
+                <source srcset="assets/images/sections/model-03.webp" type="image/webp">
+                <img src="assets/images/sections/model-03.png" alt="経験を活かしてキャリアを広げる介護職の女性" width="1448" height="1086" loading="lazy" decoding="async" onerror="this.style.display='none'">
+              </picture>
             </div>
             <span class="career-model__label">MODEL 03</span>
             <h3 class="career-model__type">会社を辞めずに経験を広げる</h3>
@@ -358,8 +416,8 @@
               <span class="career-model__tag">複数現場経験</span>
               <span class="career-model__tag">経歴に穴をあけない</span>
             </div>
-            <span class="career-model__link">この働き方を見る →</span>
-          </a>
+            <span class="career-model__link">この働き方の特徴</span>
+          </article>
         </div>
       </div>
     </section>
@@ -435,8 +493,8 @@
             まずは気軽に話を聞いてみませんか。
           </p>
           <div class="recruitment-cta__buttons">
-            <a href="#" class="btn btn-primary">エール職に応募する</a>
-            <a href="#" class="btn btn-secondary">まずは話を聞いてみる</a>
+            <a href="#recruitment" class="btn btn-primary">エール職に応募する</a>
+            <a href="#faq" class="btn btn-secondary">まずは話を聞いてみる</a>
           </div>
         </div>
       </div>
@@ -454,72 +512,72 @@
         <div class="faq-card">
           <div class="faq-list">
             <div class="faq-item">
-              <button class="faq-item__question" type="button" aria-expanded="false">
+              <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="faq-answer-1">
                 <span class="faq-item__q-label">Q1</span>
                 <span>未経験でも応募できますか？</span>
                 <span class="faq-item__icon" aria-hidden="true"></span>
               </button>
-              <div class="faq-item__answer">
+              <div class="faq-item__answer" id="faq-answer-1">
                 <p>はい、未経験の方も歓迎しています。介護の仕事に興味がある方、人と関わる仕事が好きな方であれば、経験がなくても一歩ずつ学んでいけます。</p>
               </div>
             </div>
             <div class="faq-item">
-              <button class="faq-item__question" type="button" aria-expanded="false">
+              <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="faq-answer-2">
                 <span class="faq-item__q-label">Q2</span>
                 <span>資格がなくても大丈夫ですか？</span>
                 <span class="faq-item__icon" aria-hidden="true"></span>
               </button>
-              <div class="faq-item__answer">
+              <div class="faq-item__answer" id="faq-answer-2">
                 <p>資格がない方もご相談いただけます。キャリスマエールでは、無料の資格取得サポートや育成制度を活用しながら、介護職としての基礎を身につけていくことができます。</p>
               </div>
             </div>
             <div class="faq-item">
-              <button class="faq-item__question" type="button" aria-expanded="false">
+              <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="faq-answer-3">
                 <span class="faq-item__q-label">Q3</span>
                 <span>勤務地は選べますか？</span>
                 <span class="faq-item__icon" aria-hidden="true"></span>
               </button>
-              <div class="faq-item__answer">
+              <div class="faq-item__answer" id="faq-answer-3">
                 <p>希望勤務地を伺ったうえで、通勤可能な範囲や希望条件を考慮しながら配属先をご案内します。詳しい勤務地や配属先については、面談時にご相談ください。</p>
               </div>
             </div>
             <div class="faq-item">
-              <button class="faq-item__question" type="button" aria-expanded="false">
+              <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="faq-answer-4">
                 <span class="faq-item__q-label">Q4</span>
                 <span>週休3日は本当に選べますか？</span>
                 <span class="faq-item__icon" aria-hidden="true"></span>
               </button>
-              <div class="faq-item__answer">
+              <div class="faq-item__answer" id="faq-answer-4">
                 <p>週休3日制度も選択可能です。ただし、配属先や勤務条件によって異なる場合がありますので、希望する働き方を面談時に確認しながらご案内します。</p>
               </div>
             </div>
             <div class="faq-item">
-              <button class="faq-item__question" type="button" aria-expanded="false">
+              <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="faq-answer-5">
                 <span class="faq-item__q-label">Q5</span>
                 <span>配属後に困ったときは相談できますか？</span>
                 <span class="faq-item__icon" aria-hidden="true"></span>
               </button>
-              <div class="faq-item__answer">
+              <div class="faq-item__answer" id="faq-answer-5">
                 <p>はい、配属後もフォロー担当が伴走します。働き方に迷ったとき、職場で困ったことがあるとき、今後のキャリアについて考えたいときも、ひとりで抱え込まずに相談できます。</p>
               </div>
             </div>
             <div class="faq-item">
-              <button class="faq-item__question" type="button" aria-expanded="false">
+              <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="faq-answer-6">
                 <span class="faq-item__q-label">Q6</span>
                 <span>どんな施設で働きますか？</span>
                 <span class="faq-item__icon" aria-hidden="true"></span>
               </button>
-              <div class="faq-item__answer">
+              <div class="faq-item__answer" id="faq-answer-6">
                 <p>全国各地の介護施設などで勤務します。施設の種類や仕事内容は配属先によって異なりますが、希望や適性を伺いながら、無理なく経験を積める働き方をご案内します。</p>
               </div>
             </div>
             <div class="faq-item">
-              <button class="faq-item__question" type="button" aria-expanded="false">
+              <button class="faq-item__question" type="button" aria-expanded="false" aria-controls="faq-answer-7">
                 <span class="faq-item__q-label">Q7</span>
                 <span>まず話を聞くだけでも大丈夫ですか？</span>
                 <span class="faq-item__icon" aria-hidden="true"></span>
               </button>
-              <div class="faq-item__answer">
+              <div class="faq-item__answer" id="faq-answer-7">
                 <p>もちろん大丈夫です。すぐに応募を決めなくても、働き方や制度について知りたい、未経験から始められるか相談したい、という段階でもお気軽にご相談ください。</p>
               </div>
             </div>
@@ -546,8 +604,8 @@
           気軽に話を聞いてみませんか。
         </p>
         <div class="final-cta__buttons">
-          <a href="#" class="btn btn-primary">エール職に応募する</a>
-          <a href="#" class="btn btn-secondary">まずは話を聞いてみる</a>
+          <a href="#recruitment" class="btn btn-primary">エール職に応募する</a>
+          <a href="#faq" class="btn btn-secondary">まずは話を聞いてみる</a>
         </div>
         <p class="final-cta__note">
           応募前の相談だけでも大丈夫です。<br>
@@ -576,9 +634,9 @@
             <a href="#faq">FAQ</a>
           </nav>
           <div class="footer-company">
-            <a href="#">株式会社キャリア</a>
-            <a href="#">公式サイト</a>
-            <a href="#">個人情報保護方針</a>
+            <span>株式会社キャリア</span>
+            <span>公式サイト</span>
+            <span>個人情報保護方針</span>
           </div>
         </div>
       </div>

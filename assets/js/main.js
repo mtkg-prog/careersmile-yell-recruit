@@ -11,12 +11,16 @@
      の両スライダーを同期して切り替える
      =================================== */
   function initHeroSlider() {
+    var hero = document.querySelector('.hero');
     var pcSlides = document.querySelectorAll('.hero-slider--pc .hero-slide');
     var spSlides = document.querySelectorAll('.hero-visual .hero-slide');
     var statusEl = document.querySelector('.hero-sr-status');
+    var reduceMotionQuery = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
 
     var total = Math.max(pcSlides.length, spSlides.length);
     if (total === 0) return;
+    if (hero && hero.dataset.sliderInitialized === 'true') return;
+    if (hero) hero.dataset.sliderInitialized = 'true';
 
     var current = 0;
     var interval = 4000;
@@ -38,6 +42,14 @@
       if (statusEl) {
         statusEl.textContent = 'スライド ' + (current + 1) + ' / ' + total;
       }
+    }
+
+    if (statusEl) {
+      statusEl.textContent = 'スライド 1 / ' + total;
+    }
+
+    if (reduceMotionQuery && reduceMotionQuery.matches) {
+      return;
     }
 
     function nextSlide() {
@@ -65,6 +77,47 @@
     });
 
     startTimer();
+  }
+
+  /* ===================================
+     Header Navigation
+     =================================== */
+  function initHeaderNav() {
+    var header = document.querySelector('.header');
+    var btn = document.querySelector('.header-menu-btn');
+    var nav = document.querySelector('#header-nav');
+
+    if (!header || !btn || !nav) return;
+    if (header.dataset.navInitialized === 'true') return;
+    header.dataset.navInitialized = 'true';
+
+    function setOpen(isOpen) {
+      header.classList.toggle('is-nav-open', isOpen);
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      btn.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
+    }
+
+    btn.addEventListener('click', function () {
+      setOpen(!header.classList.contains('is-nav-open'));
+    });
+
+    nav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        setOpen(false);
+      });
+    });
+
+    document.addEventListener('click', function (event) {
+      if (!header.contains(event.target)) {
+        setOpen(false);
+      }
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        setOpen(false);
+      }
+    });
   }
 
   /* ===================================
@@ -100,7 +153,11 @@
      FAQ Accordion
      =================================== */
   function initFaqAccordion() {
+    var list = document.querySelector('.faq-list');
     var items = document.querySelectorAll('.faq-item');
+    if (list && list.dataset.accordionInitialized === 'true') return;
+    if (list) list.dataset.accordionInitialized = 'true';
+
     items.forEach(function (item) {
       var btn = item.querySelector('.faq-item__question');
       if (!btn) return;
@@ -128,6 +185,7 @@
      Init
      =================================== */
   document.addEventListener('DOMContentLoaded', function () {
+    initHeaderNav();
     initHeroSlider();
     initScrollFadeIn();
     initFaqAccordion();
