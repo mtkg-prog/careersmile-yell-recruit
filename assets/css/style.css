@@ -152,7 +152,7 @@ ul {
 }
 
 .header-logo-img {
-  height: 28px;
+  height: 34px;
   width: auto;
 }
 
@@ -234,7 +234,7 @@ ul {
   }
 
   .header-logo-img {
-    height: 30px;
+    height: 34px;
   }
 }
 
@@ -1554,7 +1554,7 @@ ul {
 
 /* Brand */
 .footer-brand__logo {
-  height: 36px;
+  height: 44px;
   width: auto;
   display: block;
   filter: brightness(0) invert(1);
