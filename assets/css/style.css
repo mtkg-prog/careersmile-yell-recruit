@@ -1037,20 +1037,43 @@ ul {
 }
 
 /* ============================================
-   7. WORK & CAREER — Career Models
+   7. WORK & CAREER — Role Model Cards
    ============================================ */
 .career-models {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 16px;
-  margin-bottom: 8px;
+  gap: 24px;
 }
 
 .career-model {
-  background: var(--color-bg);
-  border-radius: 16px;
-  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-white);
+  border-radius: 24px;
+  padding: 20px;
   border: 1px solid var(--color-border);
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.career-model:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+}
+
+.career-model__image-wrap {
+  aspect-ratio: 4 / 3;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--color-gray-light);
+  margin-bottom: 20px;
+}
+
+.career-model__image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .career-model__label {
@@ -1061,26 +1084,77 @@ ul {
   color: var(--color-accent);
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  margin-bottom: 10px;
-}
-
-.career-model__title {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--color-navy);
   margin-bottom: 8px;
 }
 
-.career-model__text {
-  font-size: 0.88rem;
-  line-height: 1.8;
+.career-model__type {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-bottom: 6px;
+}
+
+.career-model__catch {
+  font-size: 0.92rem;
   color: var(--color-text);
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.career-model__text {
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: var(--color-text-light);
+  margin-bottom: 16px;
+}
+
+.career-model__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.career-model__tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 999px;
+  color: var(--color-navy);
+}
+
+.career-model__tag:nth-child(1) {
+  background: var(--color-mint);
+}
+
+.career-model__tag:nth-child(2) {
+  background: var(--color-pink-light);
+}
+
+.career-model__tag:nth-child(3) {
+  background: var(--color-gray-light);
+}
+
+.career-model__link {
+  display: block;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  letter-spacing: 0.02em;
 }
 
 @media (min-width: 768px) {
   .career-models {
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 28px;
+  }
+
+  .career-model {
+    padding: 24px;
   }
 }
 
