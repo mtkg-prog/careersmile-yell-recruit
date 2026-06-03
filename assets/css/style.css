@@ -148,22 +148,12 @@ ul {
 
 .header-logo {
   display: flex;
-  flex-direction: column;
-  gap: 1px;
+  align-items: center;
 }
 
-.header-logo-main {
-  font-family: var(--font-ja);
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--color-accent);
-  letter-spacing: 0.08em;
-}
-
-.header-logo-sub {
-  font-size: 10px;
-  color: var(--color-text-light);
-  letter-spacing: 0.04em;
+.header-logo-img {
+  height: 32px;
+  width: auto;
 }
 
 .header-menu-btn {
@@ -243,12 +233,8 @@ ul {
     padding: 12px 40px;
   }
 
-  .header-logo-main {
-    font-size: 18px;
-  }
-
-  .header-logo-sub {
-    font-size: 11px;
+  .header-logo-img {
+    height: 36px;
   }
 }
 
