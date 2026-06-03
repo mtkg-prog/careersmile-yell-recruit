@@ -735,7 +735,7 @@ ul {
 .section--career { background-color: var(--color-white); }
 .section--recruitment { background-color: var(--color-bg); }
 .section--faq { background-color: var(--color-white); }
-.section--final-cta { background-color: var(--color-navy); }
+.section--final-cta { background: linear-gradient(160deg, var(--color-mint) 0%, var(--color-pink-light) 100%); }
 
 /* ============================================
    3. YOUR QUESTIONS — Card Grid
@@ -1159,10 +1159,13 @@ ul {
 }
 
 /* ============================================
-   8. RECRUITMENT — Definition List
+   8. RECRUITMENT — Definition List Card
    ============================================ */
-.recruitment-content {
-  display: block;
+.recruitment-card {
+  background: var(--color-white);
+  border-radius: 24px;
+  border: 1px solid var(--color-border);
+  padding: 24px;
 }
 
 .recruitment-dl {
@@ -1172,77 +1175,125 @@ ul {
 .recruitment-dl__item {
   display: flex;
   flex-direction: column;
-  padding: 18px 0;
+  padding: 16px 0;
   border-bottom: 1px solid var(--color-border);
 }
 
 .recruitment-dl__item:first-child {
-  border-top: 1px solid var(--color-border);
+  padding-top: 0;
+}
+
+.recruitment-dl__item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
 .recruitment-dl dt {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  color: var(--color-navy);
-  margin-bottom: 4px;
-  letter-spacing: 0.04em;
+  color: var(--color-accent);
+  margin-bottom: 6px;
+  letter-spacing: 0.06em;
 }
 
 .recruitment-dl dd {
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   line-height: 1.8;
   color: var(--color-text);
 }
 
+.recruitment-dl__note {
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+}
+
+/* Recruitment CTA */
+.recruitment-cta {
+  margin-top: 48px;
+  text-align: center;
+}
+
+.recruitment-cta__text {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: var(--color-text);
+  margin-bottom: 28px;
+}
+
+.recruitment-cta__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
 @media (min-width: 768px) {
-  .recruitment-content {
-    display: flex;
-    gap: 48px;
-    align-items: flex-start;
-  }
-
-  .recruitment-dl {
-    flex: 1;
-  }
-
-  .recruitment-content > .section-media {
-    flex: 0 0 320px;
-    margin-top: 0;
+  .recruitment-card {
+    padding: 40px;
   }
 
   .recruitment-dl__item {
     flex-direction: row;
-    gap: 24px;
+    gap: 32px;
+    padding: 18px 0;
+  }
+
+  .recruitment-dl__item:first-child {
+    padding-top: 0;
+  }
+
+  .recruitment-dl__item:last-child {
+    padding-bottom: 0;
   }
 
   .recruitment-dl dt {
-    flex: 0 0 120px;
+    flex: 0 0 130px;
     margin-bottom: 0;
+    padding-top: 2px;
+  }
+
+  .recruitment-cta {
+    margin-top: 56px;
+  }
+
+  .recruitment-cta__buttons {
+    flex-direction: row;
+    justify-content: center;
+    max-width: none;
+    gap: 16px;
   }
 }
 
 /* ============================================
    9. FAQ — Accordion
    ============================================ */
-.faq-list {
-  max-width: 720px;
+.faq-card {
+  background: var(--color-white);
+  border-radius: 24px;
+  border: 1px solid var(--color-border);
+  padding: 24px;
+  max-width: 760px;
   margin: 0 auto;
+}
+
+.faq-list {
+  width: 100%;
 }
 
 .faq-item {
   border-bottom: 1px solid var(--color-border);
 }
 
-.faq-item:first-child {
-  border-top: 1px solid var(--color-border);
+.faq-item:last-child {
+  border-bottom: none;
 }
 
 .faq-item__question {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   width: 100%;
-  padding: 20px 0;
+  padding: 18px 0;
   background: none;
   border: none;
   cursor: pointer;
@@ -1252,11 +1303,22 @@ ul {
   line-height: 1.7;
   color: var(--color-navy);
   text-align: left;
-  gap: 16px;
+  gap: 12px;
+}
+
+.faq-item__q-label {
+  flex-shrink: 0;
+  font-family: var(--font-en);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 0.04em;
+  min-width: 28px;
 }
 
 .faq-item__icon {
   flex-shrink: 0;
+  margin-left: auto;
   position: relative;
   width: 24px;
   height: 24px;
@@ -1305,13 +1367,17 @@ ul {
   font-size: 0.88rem;
   line-height: 1.9;
   color: var(--color-text);
-  padding-bottom: 20px;
+  padding: 0 0 20px 40px;
 }
 
 @media (min-width: 768px) {
+  .faq-card {
+    padding: 40px;
+  }
+
   .faq-item__question {
     font-size: 1rem;
-    padding: 24px 0;
+    padding: 22px 0;
   }
 }
 
@@ -1323,67 +1389,49 @@ ul {
 }
 
 .section--final-cta .section-label {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--color-accent);
 }
 
 .section--final-cta .section-heading {
-  color: var(--color-white);
+  color: var(--color-navy);
+  font-size: 1.5rem;
 }
 
-.section--final-cta .section-body p {
-  color: rgba(255, 255, 255, 0.8);
+.final-cta__lead {
+  font-size: 0.92rem;
+  line-height: 2;
+  color: var(--color-text);
+  margin-bottom: 8px;
 }
 
 .final-cta__buttons {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  margin-top: 32px;
+  margin-top: 36px;
 }
 
-.section--final-cta .btn-primary {
-  background-color: var(--color-white);
-  color: var(--color-navy);
-  border-color: var(--color-white);
-}
-
-.section--final-cta .btn-primary:hover {
-  background-color: var(--color-pink-light);
-  border-color: var(--color-pink-light);
-  color: var(--color-accent);
-}
-
-.section--final-cta .btn-secondary {
-  background-color: transparent;
-  color: var(--color-white);
-  border-color: rgba(255, 255, 255, 0.4);
-}
-
-.section--final-cta .btn-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.6);
-}
-
-.section--final-cta .section-media {
-  max-width: 480px;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 20px;
-  margin-top: 40px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+.final-cta__note {
+  margin-top: 24px;
+  font-size: 0.78rem;
+  line-height: 1.8;
+  color: var(--color-text-light);
 }
 
 @media (min-width: 768px) {
+  .section--final-cta .section-heading {
+    font-size: 2rem;
+  }
+
+  .final-cta__lead {
+    font-size: 1rem;
+  }
+
   .final-cta__buttons {
     flex-direction: row;
     justify-content: center;
     gap: 16px;
-    margin-top: 40px;
-  }
-
-  .section--final-cta .section-media {
-    margin-top: 56px;
-    border-radius: 24px;
+    margin-top: 44px;
   }
 }
 
@@ -1391,14 +1439,115 @@ ul {
    Footer
    ============================================ */
 .footer {
-  background-color: var(--color-navy);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 24px 20px;
+  background-color: #203246;
+  padding: 48px 24px 32px;
+}
+
+.footer-inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.footer-main {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Brand */
+.footer-brand__name {
+  display: block;
+  font-family: var(--font-ja);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-white);
+  letter-spacing: 0.06em;
+}
+
+.footer-brand__by {
+  display: block;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.45);
+  margin-top: 4px;
+  letter-spacing: 0.02em;
+}
+
+.footer-brand__tagline {
+  margin-top: 14px;
+  font-size: 0.82rem;
+  color: var(--color-coral);
+  letter-spacing: 0.04em;
+}
+
+/* Links */
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+
+.footer-nav a {
+  font-family: var(--font-en);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  transition: color 0.2s ease;
+}
+
+.footer-nav a:hover {
+  color: var(--color-coral);
+}
+
+.footer-company {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+}
+
+.footer-company a {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-company a:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Copyright */
+.footer-copy {
+  margin-top: 28px;
+  font-family: var(--font-en);
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.06em;
   text-align: center;
 }
 
-.footer-copy {
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.45);
-  letter-spacing: 0.04em;
+@media (min-width: 768px) {
+  .footer {
+    padding: 64px 40px 32px;
+  }
+
+  .footer-main {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .footer-links {
+    align-items: flex-end;
+    text-align: right;
+  }
 }
