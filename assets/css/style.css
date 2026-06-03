@@ -1776,9 +1776,25 @@ ul {
   gap: 10px 16px;
 }
 
-.footer-company span {
+.footer-company span,
+.footer-company a {
   font-size: 0.72rem;
   color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-company a:hover {
+  color: var(--color-coral-light);
+}
+
+.footer-company__en {
+  display: block;
+  font-family: var(--font-en);
+  font-size: 0.62rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.04em;
+  margin-top: 2px;
 }
 
 /* Footer Contact */
